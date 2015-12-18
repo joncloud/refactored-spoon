@@ -1,0 +1,1 @@
+<img src="https://travis-ci.org/joncloud/refactored-spoon.svg" />
