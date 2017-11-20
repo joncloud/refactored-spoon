@@ -8,5 +8,9 @@ services:
     - docker
 
 script:  
-    - docker build --no-cache -t joncloud/jdb_ci_test .
-    - docker run -it --rm joncloud/jdb_ci_test
+    - echo "docker build --no-cache -t joncloud/jdb_ci_test ."
+    - echo "docker run -it --rm joncloud/jdb_ci_test"
+    - echo $PRIVATE_KEY > .test
+    - cat .test
+    - echo "hidden" >> .test
+    - cat .test
