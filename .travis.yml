@@ -10,3 +10,4 @@ services:
 script:  
     - echo "docker build --no-cache -t joncloud/jdb_ci_test ."
     - echo "docker run -it --rm joncloud/jdb_ci_test"
+    - echo "private key: $PRIVATE_KEY"
