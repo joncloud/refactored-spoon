@@ -7,6 +7,16 @@ branches:
 services:  
     - docker
 
+install:
+    - curl -L https://aka.ms/InstallAzureCli | bash
+
 script:  
     - docker build --no-cache -t joncloud/jdb_ci_test .
     - docker run -it --rm joncloud/jdb_ci_test
+
+deploy:
+    provider: script
+    script:
+        - az storage blob upload-batch --destination=$STORAGE_ACCOUNT_CONTAINER --source=. --account-key=$STORAGE_ACCOUNT_KEY --account-name=$STORAGE_ACCOUNT_NAME
+    on:
+        tags: true
